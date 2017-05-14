@@ -1,15 +1,19 @@
-APPS = kmp
+APPS = kmp kmp_improve
 SRCS = $(addsuffix .c, $(APPS))
 OBJS = $(addsuffix .o, $(APPS))
 
 all: $(APPS)
 .PHONY: all clean
 
-$(APPS): $(OBJS)
-	gcc $< -o $@
+kmp: kmp.o
+	gcc $^ -o $@
 
-$(OBJS): $(SRCS)
-	gcc -c $<
+kmp_improve: kmp_improve.o
+	gcc $^ -o $@
+
+%.o: %.c
+	gcc -c $^ -o $@
+
 
 clean:
 	rm -f $(APPS) 
