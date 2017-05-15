@@ -16,4 +16,4 @@ kmp_improve: kmp_improve.o
 
 
 clean:
-	rm -f $(APPS) 
+	rm -f $(APPS) *.o 
